@@ -1,0 +1,14 @@
+# REQUIREMENTS
+# This file lists the dependencies for the project.
+
+pandas
+numpy
+scikit-learn
+lightgbm
+xgboost
+sqlalchemy
+fastapi
+uvicorn
+streamlit
+psycopg2-binary
+-e .
