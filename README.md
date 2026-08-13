@@ -1,22 +1,51 @@
 # 🛒 E-Commerce Analytics & Machine Learning Pipeline
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg)](https://fastapi.tiangolo.com/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg)](https://streamlit.io/)
-[![LightGBM](https://img.shields.io/badge/ML-LightGBM-green.svg)](https://lightgbm.readthedocs.io/)
-[![SQLite](https://img.shields.io/badge/Database-SQLite3-003B57.svg)](https://www.sqlite.org/)
+<p align="center">
+  <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.10%2B-blue.svg" alt="Python"></a>
+  <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.100%2B-009688.svg" alt="FastAPI"></a>
+  <a href="https://streamlit.io/"><img src="https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B.svg" alt="Streamlit"></a>
+  <a href="https://lightgbm.readthedocs.io/"><img src="https://img.shields.io/badge/ML-LightGBM-green.svg" alt="LightGBM"></a>
+  <a href="https://www.sqlite.org/"><img src="https://img.shields.io/badge/Database-SQLite3-003B57.svg" alt="SQLite"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"></a>
+  <a href="https://github.com/johnq/E-Commerce-Analytics-ML-Pipeline"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a>
+</p>
 
 An End-to-End E-Commerce Analytics & Machine Learning Pipeline that integrates business analytics (SQL & RFM Analytics), an automated training pipeline for predicting high-value orders, a microservice REST API, and an interactive real-time dashboard.
 
 ---
 
-## 📌 Project Overview
+## 📌 Description
 
-Built following modular enterprise architecture standards, this project is divided into 4 core blocks:
-1. **Data Ingestion & SQL Analytics:** Automated data ingestion into SQLite, calculating key business metrics (Revenue, MoM Growth, AOV) and customer segmentation using the **RFM (Recency, Frequency, Monetary)** model.
-2. **Feature Engineering & ML Pipeline:** Data preprocessing, temporal feature extraction, and automated model selection (**LightGBM**, **Random Forest**, **Logistic Regression**) based on weighted F1-Score.
-3. **Backend Microservice (FastAPI):** Serves `/predict` and `/health` RESTful endpoints for real-time inference with Pydantic validation.
-4. **Executive Dashboard (Streamlit):** An interactive UI featuring business analytics visualizations and an integrated real-time prediction interface.
+This project provides a production-ready, modular data science solution designed to address core e-commerce challenges: **customer segmentation** and **order value prediction**. 
+
+Key capabilities include:
+* **Automated Data Ingestion:** Safely ingests raw CSV transactional logs into an optimized SQLite relational database.
+* **SQL Business Analytics & RFM Engine:** Calculates crucial financial KPIs (Revenue, AOV, MoM Growth) and segments customers into actionable behavioral tiers (*VIP, Loyal, At-Risk, Lost*) using Quantile Scoring.
+* **Automated ML Pipeline:** Preprocesses multi-modal features, extracts temporal dimensions, handles class imbalances, and evaluates multiple classifiers (**LightGBM**, **Random Forest**, **Logistic Regression**) to select the top performer based on weighted F1-Score.
+* **Production-Grade Microservice:** Exposes structured `/predict` and `/health` REST API endpoints powered by **FastAPI** and **Pydantic** data validation.
+* **Executive Dashboard:** A two-in-one interactive **Streamlit** Web UI for real-time executive decision-making and live inference testing.
+
+---
+
+## 📸 Screenshots
+
+| Executive Analytics Dashboard | Real-Time ML Prediction Interface |
+| :---: | :---: |
+| ![Executive Dashboard](docs/images/dashboard.png) | ![ML Predictor](docs/images/api_docs.png) |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technologies / Libraries |
+| :--- | :--- |
+| **Language** | Python 3.10+ |
+| **Database** | SQLite3, SQLAlchemy |
+| **Data Analytics** | Pandas, NumPy, Scikit-Learn |
+| **Machine Learning** | LightGBM, Random Forest, Logistic Regression |
+| **Backend Microservice** | FastAPI, Uvicorn, Pydantic |
+| **Frontend / Dashboard**| Streamlit |
+| **Artifact Management** | Joblib |
 
 ---
 
@@ -49,8 +78,8 @@ Built following modular enterprise architecture standards, this project is divid
                                                                      │
                                                                      ▼
                                                           [Streamlit App: dashboard/app.py]
-
 📁 Project Directory Structure
+Plaintext
 E-Commerce-Analytics-ML-Pipeline/
 ├── api/
 │   ├── __init__.py
@@ -63,6 +92,8 @@ E-Commerce-Analytics-ML-Pipeline/
 ├── database/
 │   ├── ecommerce.db                # SQLite database storing fact & analytics tables
 │   └── queries.sql                 # SQL analytical queries for business metrics
+├── docs/
+│   └── images/                     # Screenshots and architectural diagrams
 ├── logs/                           # System logs generated automatically
 ├── models/                         # Trained artifacts (preprocessor.joblib, model.joblib)
 ├── src/
@@ -82,15 +113,16 @@ E-Commerce-Analytics-ML-Pipeline/
 ├── .gitignore                      # Git ignore rules
 ├── README.md                       # Project documentation
 └── requirements.txt                # Dependency list
+⚙️ Installation & Requirements
+Requirements
+Python: 3.10 or higher
 
-🛠️ Tech StackLayerTechnologies / LibrariesLanguagePython 3.10+DatabaseSQLite3, SQLAlchemyData AnalyticsPandas, NumPy, Scikit-LearnMachine LearningLightGBM, Random Forest, Logistic RegressionBackend ServiceFastAPI, Uvicorn, PydanticFrontend / DashboardStreamlitArtifact ManagementJoblib
+OS: Windows 10/11, macOS, or Linux
 
-⚡ Setup & Quickstart
-1. Prerequisites
-Python 3.10 or higher installed
-Git installed
+Git: Version Control System
 
-2. Environment Setup
+Quick Installation
+Bash
 # 1. Clone the repository
 git clone [https://github.com/johnq/E-Commerce-Analytics-ML-Pipeline.git](https://github.com/johnq/E-Commerce-Analytics-ML-Pipeline.git)
 cd E-Commerce-Analytics-ML-Pipeline
@@ -98,34 +130,49 @@ cd E-Commerce-Analytics-ML-Pipeline
 # 2. Create a virtual environment
 python -m venv venv
 
-# 3. Activate the virtual environment
-# On Windows (PowerShell):
+# 3. Activate virtual environment
+# Windows (PowerShell):
 .\venv\Scripts\Activate.ps1
-# On Linux/macOS:
+# Linux / macOS:
 source venv/bin/activate
 
-# 4. Install dependencies
+# 4. Install required packages
 pip install -r requirements.txt
+🚀 Execution Guide
+1. Execute Data Pipeline & Model Training
+Execute the commands below in sequence to populate the database and train Machine Learning models:
 
-🚀 Step-by-Step Execution
+Bash
+# Step A: Ingest raw CSV into SQLite
 python src/db_connector.py
 
-Step 2: Customer RFM Segmentation
+# Step B: Calculate RFM Customer Segmentation
 python src/rfm_analytics.py
 
-Step 3: Run Full End-to-End ML Training Pipeline
+# Step C: Run Full Training Pipeline (Transformation + Training)
 python src/pipeline/train_pipeline.py
+2. Launch Backend API & Interactive Dashboard
+Open two separate terminal windows with active virtual environment:
 
-🌐 Running REST API & Dashboard
-Terminal 1: Launch FastAPI Backend Server
+Terminal 1 (FastAPI Server):
+
+Bash
 uvicorn api.main:app --reload
-Terminal 2: Launch Streamlit Dashboard
-streamlit run dashboard/app.py
+Swagger UI API Docs: http://127.0.0.1:8000/docs
 
-🔌 API Endpoints Documentation
+Terminal 2 (Streamlit Dashboard):
+
+Bash
+streamlit run dashboard/app.py
+Web App URL: http://localhost:8501
+
+🔌 API Reference & Usage Sample
 POST /predict
-Predicts whether a newly incoming order will be classified as a High Value Order.
-Request Body (JSON):
+Predicts high-value order probability for incoming payload data.
+
+Request Payload Example:
+
+JSON
 {
   "order_date": "2026-08-15",
   "product_category": "Electronics",
@@ -138,10 +185,28 @@ Request Body (JSON):
   "traffic_source": "Direct",
   "device_type": "Mobile"
 }
+Response Example:
 
-Response (JSON 200 OK):
+JSON
 {
   "is_high_value_order": 1,
   "high_value_probability": 0.8745,
   "status": "success"
 }
+🗺️ Roadmap
+[x] Initial SQLite & LightGBM Baseline Engine.
+
+[x] FastAPI Microservice Deployment.
+
+[x] Executive Streamlit Dashboard.
+
+[ ] Containerize via Docker & Docker-Compose.
+
+[ ] Add CI/CD Workflow via GitHub Actions.
+
+💬 Support & Contact
+If you have any questions or feedback regarding this pipeline:
+
+Issue Tracker: Open an issue via GitHub Issues
+
+Author: John Q — GitHub Profile
