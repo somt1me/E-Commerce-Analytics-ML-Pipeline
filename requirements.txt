@@ -1,14 +1,24 @@
 # REQUIREMENTS
 # This file lists the dependencies for the project.
 
+# Data Processing & Analytics 
 pandas
 numpy
+sqlite3
+
+# Machine Learning & Modeling 
 scikit-learn
 lightgbm
-xgboost
+joblib
+
+# Database Connector
 sqlalchemy
+
+# Backend REST API
 fastapi
 uvicorn
+pydantic
+
+# Frontend Dashboard & HTTP Client
 streamlit
-psycopg2-binary
--e .
+requests
