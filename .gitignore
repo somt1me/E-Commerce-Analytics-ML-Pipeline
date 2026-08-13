@@ -3,15 +3,12 @@ venv/
 *.pyc
 __pycache__/
 
-# Package Build & Setup Artifacts 
+# Package Build Artifacts 
 *.egg-info/
 build/
 dist/
 
-# Jupyter Notebook Checkpoints
-.ipynb_checkpoints/
-
-# Database & Heavy Model Files 
+# Database & Model Artifacts 
 database/*.db
 models/*.joblib
 data/raw/*
@@ -19,10 +16,7 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 
-# Logs & Environment Files 
+# System & IDE Config 
 logs/
 .env
 .DS_Store
-
-# IDE Settings
-.vscode/
